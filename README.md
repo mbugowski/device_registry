@@ -15,7 +15,7 @@ Here are the product requirements:
 
 TODO:
  - Fix config, so you can run the test suite properly.
- - Implement the code to make the tests pass for `RegisterDeviceForUser` service.
+ - Implement the code to make the tests pass for `AssignDeviceToUser` service.
  - Implement tests for returning the device and implement the code to makes them pass.
 
 

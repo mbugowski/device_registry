@@ -3,7 +3,7 @@
 class DevicesController < ApplicationController
   before_action :authenticate_user!, only: %i[register archive]
   def assign
-    AssignDeviceForUser.new(
+    AssignDeviceToUser.new(
       requesting_user: @current_user,
       serial_number: device_params,
       new_device_owner_id: params[:new_device_owner_id]

@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe AssignDeviceForUser do
+RSpec.describe AssignDeviceToUser do
   subject(:assign_device) do
     described_class.new(
       requesting_user: user,
@@ -46,7 +46,7 @@ RSpec.describe AssignDeviceForUser do
       let(:other_user) { create(:user) }
 
       before do
-        AssignDeviceForUser.new(
+        AssignDeviceToUser.new(
           requesting_user: other_user,
           serial_number: serial_number,
           new_device_owner_id: other_user.id
