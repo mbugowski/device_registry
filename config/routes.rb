@@ -3,6 +3,6 @@ Rails.application.routes.draw do
 
   scope '/api' do
     post :assign, to: 'devices#assign'
-    post :return, to: 'devices#return'
+    post :unassign, to: 'devices#unassign'
   end
 end

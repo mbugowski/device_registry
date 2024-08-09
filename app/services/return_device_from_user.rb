@@ -1,5 +1,11 @@
 # frozen_string_literal: true
 
 class ReturnDeviceFromUser
-  # TODO: Implement the ArchiveDeviceForUser service
+  def initialize
+    # TODO
+  end
+
+  def call
+    # TODO
+  end
 end

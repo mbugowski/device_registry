@@ -7,14 +7,14 @@ RSpec.describe DevicesController, type: :controller do
   let(:user) { api_key.bearer }
 
 
-  describe 'POST #register' do
-    subject(:assign_device) do
-      post :register,
+  describe 'POST #assign' do
+    subject(:assign) do
+      post :assign,
            params: { new_owner_id: new_owner_id, device: { serial_number: '123456' } },
            session: { token: user.api_keys.first.token }
     end
     context 'when the user is authenticated' do
-      context 'when user registers a device on other user' do
+      context 'when user assigns a device on other user' do
         let(:new_owner_id) { create(:user).id }
 
         it 'returns an unauthorized response' do
@@ -23,11 +23,11 @@ RSpec.describe DevicesController, type: :controller do
         end
       end
 
-      context 'when user registers a device on self' do
+      context 'when user assigns a device on self' do
         let(:new_owner_id) { user.id }
 
         it 'returns a success response' do
-          register_device
+          assign
           expect(response).to be_successful
         end
       end
@@ -35,13 +35,13 @@ RSpec.describe DevicesController, type: :controller do
 
     context 'when the user is not authenticated' do
       it 'returns an unauthorized response' do
-        post :register
+        post :assign
         expect(response).to be_unauthorized
       end
     end
   end
 
-  describe 'POST #archive' do
-    # TODO: implement the tests for the archive action
+  describe 'POST #unassign' do
+    # TODO: implement the tests for the unassign action
   end
 end

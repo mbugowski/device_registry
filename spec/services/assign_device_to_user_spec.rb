@@ -31,7 +31,7 @@ RSpec.describe AssignDeviceToUser do
       expect(user.devices.pluck(:serial_number)).to include(serial_number)
     end
 
-    context 'when user tries to register device that was already registered and archived on the same user' do
+    context 'when user tries to register device that was already assigned and returned on the same user' do
       before do
         assign_device
         ReturnDeviceFromUser.new(user: user, serial_number: serial_number, from_user: user.id).call
@@ -42,7 +42,7 @@ RSpec.describe AssignDeviceToUser do
       end
     end
 
-    context 'when user tries to register device that is already registered on other user' do
+    context 'when user tries to register device that is already assigned on other user' do
       let(:other_user) { create(:user) }
 
       before do
