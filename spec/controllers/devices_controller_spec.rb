@@ -14,7 +14,7 @@ RSpec.describe DevicesController, type: :controller do
            session: { token: user.api_keys.first.token }
     end
     context 'when the user is authenticated' do
-      context 'when user assigns a device on other user' do
+      context 'when user assigns a device to another user' do
         let(:new_owner_id) { create(:user).id }
 
         it 'returns an unauthorized response' do
@@ -23,7 +23,7 @@ RSpec.describe DevicesController, type: :controller do
         end
       end
 
-      context 'when user assigns a device on self' do
+      context 'when user assigns a device to self' do
         let(:new_owner_id) { user.id }
 
         it 'returns a success response' do
